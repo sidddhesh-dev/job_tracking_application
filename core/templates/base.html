@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerTrack</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="navbar">
+    <div class="nav-container">
+
+        <div class="logo">
+            CareerTrack
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+
+        <a href="#" class="cta-btn">Get Started</a>
+
+    </div>
+</header>
+
+<!-- =============== PAGE CONTENT ============== -->
+
+{% block content %}
+{% endblock %}
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+    <div class="footer-container">
+
+        <p>© 2026 CareerTrack</p>
+
+        <div class="footer-links">
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+            <a href="#">Contact</a>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>
