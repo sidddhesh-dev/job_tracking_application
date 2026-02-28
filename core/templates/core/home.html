@@ -17,10 +17,10 @@
             accelerate your journey to success with smart analytics.
         </p>
 
-        <div class="hero-buttons">
-            <a href="#" class="btn-primary">Get Started</a>
-            <a href="#" class="btn-secondary">Explore Features</a>
-        </div>
+      <div class="hero-buttons">
+            <a href="#feature-tracker" class="btn-primary">Get Started</a>
+            <a href="#explore-section" class="btn-secondary">Explore Features</a>
+       </div>
     </div>
 
     <div class="hero-right">
@@ -30,7 +30,7 @@
     </section>
 
 
-    <section class="feature-tracker">
+    <section id="feature-tracker" class="feature-tracker">
 
     <div class="feature-container">
 
@@ -43,7 +43,7 @@
                 every opportunity under control with an intuitive tracking system.
             </p>
 
-            <a href="#" class="btn-first">See More</a>
+            <a href="{% url 'tracker' %}" class="btn-first">See More</a>
         </div>
 
         <div class="feature-image">
@@ -55,6 +55,82 @@
 
     </section>
 
+    <section class="career-hero">
+
+    <div class="career-hero-container">
+
+        <!-- LEFT IMAGE -->
+        <div class="career-hero-image">
+            <img src="{% static 'images/dashboard.webp' %}" alt="Dashboard">
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div class="career-hero-content">
+
+            <div class="career-logo">
+                JobTracker <span>Pro</span>
+            </div>
+
+            <h2>
+                Organize Your Career Growth <br>
+                With Precision & Clarity
+            </h2>
+
+            <p>
+                Track job applications, manage resumes, store professional
+                details, and monitor progress — all in one intelligent dashboard.
+            </p>
+
+            <a href="#" class="career-btn">
+                Start Tracking →
+            </a>
+
+        </div>
+
+    </div>
+
+    </section>
+
+    <section id="explore-section"  class="explore-section">
+
+    <div class="explore-container">
+
+        <h2 class="explore-heading">Explore JobTracker</h2>
+
+        <div class="explore-cards">
+
+            <a href="{% url 'information' %}" class="explore-card">
+            <img src="{% static 'images/public_service.webp' %}" alt="Why JobTracker">
+            <h3>Why JobTracker</h3>
+            <p>
+                Stay organized and eliminate confusion during your job search.
+                JobTracker keeps every application, deadline, and update in one place.
+            </p>
+            </a>
+
+        
+            <div class="explore-card">
+                <img src="{% static 'images/personal_growth.webp' %}" alt="Features">
+                <h3>Our Features</h3>
+                <p>
+                    Track applications, monitor status, manage resumes, and
+                    view progress through an intelligent dashboard.
+                </p>
+            </div>
+
+            <div class="explore-card">
+                <img src="{% static 'images/developer.webp' %}" alt="Developer">
+                <h3>About Developer</h3>
+                <p>
+                    Designed and developed by Siddhesh Thorat, an emerging Full Stack Python Developer
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
     
 
 {% endblock %}

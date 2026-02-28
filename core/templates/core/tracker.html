@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/tracker.css' %}">
+
+<section class="tracker-wrapper">
+
+    <h1>Job Application Tracker</h1>
+
+    <!-- ADD JOB FORM -->
+    <form method="POST" action="{% url 'add_job' %}" class="tracker-form">
+        {% csrf_token %}
+        <input type="text" name="company" placeholder="Company" required>
+        <input type="text" name="role" placeholder="Role" required>
+        <input type="date" name="date" required>
+
+        <select name="status">
+            <option>Applied</option>
+            <option>Interview</option>
+            <option>Rejected</option>
+            <option>Offer</option>
+        </select>
+
+        <button type="submit">Add</button>
+    </form>
+
+    <!-- JOB TABLE -->
+    <div class="tracker-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Role</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>View</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for job in jobs %}
+                <tr>
+                    <td>{{ job.company }}</td>
+                    <td>{{ job.role }}</td>
+                    <td>{{ job.date_applied }}</td>
+
+                    <td>
+                        <span class="status {{ job.status|lower }}">
+                            {{ job.status }}
+                        </span>
+                    </td>
+
+                    <td>
+                        <button class="view-btn"
+                        onclick="showDetails(
+                        '{{ job.company|escapejs }}',
+                        '{{ job.role|escapejs }}',
+                        '{{ job.date_applied }}',
+                        '{{ job.status }}')">
+                        View
+                        </button>
+                    </td>
+
+                    <td>
+                        <a href="{% url 'delete_job' job.id %}" class="delete-btn">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6">No applications added yet.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</section>
+
+<!-- POPUP DETAILS -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2 id="pCompany"></h2>
+        <p><strong>Role:</strong> <span id="pRole"></span></p>
+        <p><strong>Date:</strong> <span id="pDate"></span></p>
+        <p><strong>Status:</strong> <span id="pStatus"></span></p>
+    </div>
+</div>
+
+<script>
+function showDetails(company, role, date, status) {
+    document.getElementById("pCompany").innerText = company;
+    document.getElementById("pRole").innerText = role;
+    document.getElementById("pDate").innerText = date;
+    document.getElementById("pStatus").innerText = status;
+
+    document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+
+{% endblock %}

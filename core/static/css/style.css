@@ -84,3 +84,48 @@ body {
 .footer-links a:hover {
     color: #60a5fa;
 }
+
+.features-dropdown {
+    position: relative;
+}
+
+/* panel style */
+.features-panel {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    width: 260px;
+    background: white;
+    padding: 18px 20px;
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: 0.25s ease;
+    z-index: 999;
+}
+
+/* when active */
+.features-panel.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.features-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features-panel li {
+    padding: 8px 0;
+}
+
+.features-panel a {
+    text-decoration: none;
+    color: #0f172a;
+    font-size: 15px;
+}

@@ -1,0 +1,118 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.info-hero {
+    height: 320px;
+    background: url("../images/public_service.webp") center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.info-hero-overlay {
+    background: rgba(10, 37, 64, 0.85);
+    padding: 40px 60px;
+    margin-left: 8%;
+    border-radius: 10px;
+}
+
+.info-hero-overlay h1 {
+    color: white;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+
+/* CONTENT SECTION */
+
+.info-content {
+    background: #0f172a;
+    color: white;
+    padding: 80px 8%;
+}
+
+.info-container {
+    max-width: 900px;
+}
+
+.info-content h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.info-content .lead {
+    font-size: 20px;
+    color: #cbd5e1;
+    margin-bottom: 25px;
+}
+
+.info-content p {
+    line-height: 1.8;
+    color: #e2e8f0;
+    margin-bottom: 18px;
+}
+
+.info-hero {
+    height: 320px;
+    background: url("../images/public_service.webp") center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.info-hero-overlay {
+    background: rgba(10, 37, 64, 0.85);
+    padding: 40px 60px;
+    margin-left: 8%;
+    border-radius: 10px;
+}
+
+.info-hero-overlay h1 {
+    color: white;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+
+/* CONTENT SECTION */
+
+.info-content {
+    background: #0f172a;
+    color: white;
+    padding: 80px 8%;
+}
+
+.info-container {
+    max-width: 900px;
+}
+
+.info-content h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.info-content .lead {
+    font-size: 20px;
+    color: #cbd5e1;
+    margin-bottom: 25px;
+}
+
+.info-content p {
+    line-height: 1.8;
+    color: #e2e8f0;
+    margin-bottom: 18px;
+}
+
+.explore-card {
+    text-decoration: none;
+    color: inherit;
+}
+
+.explore-card:visited {
+    color: inherit;
+}
+
+.explore-card:hover {
+    color: inherit;
+}
