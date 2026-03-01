@@ -4,132 +4,129 @@
 
 <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
 
-<div class="dashboard-container">
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
 
-    <!-- ================= PROFILE SECTION ================= -->
-    <section class="profile-section">
+<!-- ================= PROFILE SECTION ================= -->
+<section class="profile-section">
 
-        <div class="profile-left">
-            <img src="{{ profile.photo.url }}" id="preview" class="profile-img">
-
-            <label class="upload-btn">
-                Upload Photo
+    <div class="profile-left">
+        <div class="profile-img-wrapper">
+            <img id="preview"
+                 src="{% if profile.photo %}{{ profile.photo.url }}{% else %}{% static 'images/default.jpg' %}{% endif %}">
+            
+            <label class="upload-overlay">
+                Change Photo
                 <input type="file" name="photo" onchange="previewImage(event)">
             </label>
         </div>
+    </div>
 
-        <div class="profile-right">
-            <h1 class="profile-name">{{ profile.full_name }}</h1>
-            <p class="profile-role">{{ profile.profession }}</p>
+    <div class="profile-right">
+        <input class="name-field" name="full_name" placeholder="Your Full Name">
+        <textarea class="bio-field" name="bio"
+        placeholder="Write a short professional summary..."></textarea>
+    </div>
 
-            <textarea name="bio" placeholder="Write a short introduction about yourself...">
-{{ profile.bio }}
-            </textarea>
-        </div>
-
-    </section>
+</section>
 
 
-    <!-- ================= EDUCATION ================= -->
-    <section class="section">
-        <h2>Education</h2>
+<!-- ================= EDUCATION ================= -->
+<section class="card-section">
+<h2>Education</h2>
 
-        <div class="grid-2">
-            <div class="card">
-                <input type="text" placeholder="College Name">
-                <input type="text" placeholder="Degree">
-                <input type="text" placeholder="Stream">
-                <input type="text" placeholder="Percentage">
-            </div>
+<div class="edu-grid">
 
-            <div class="card">
-                <input type="text" placeholder="College Name">
-                <input type="text" placeholder="Degree">
-                <input type="text" placeholder="Stream">
-                <input type="text" placeholder="Percentage">
-            </div>
-        </div>
-    </section>
+    <div class="edu-card">
+        <input name="college1" placeholder="College Name">
+        <input name="degree1" placeholder="Degree">
+        <input name="stream1" placeholder="Stream">
+        <input name="percentage1" placeholder="Percentage">
+    </div>
 
-
-    <!-- ================= PROJECTS ================= -->
-    <section class="section">
-        <h2>Projects</h2>
-
-        <div class="grid-3">
-
-            <div class="card">
-                <input type="text" placeholder="Project Title">
-                <input type="text" placeholder="Tools & Languages Used">
-                <textarea placeholder="Project Description"></textarea>
-            </div>
-
-            <div class="card">
-                <input type="text" placeholder="Project Title">
-                <input type="text" placeholder="Tools & Languages Used">
-                <textarea placeholder="Project Description"></textarea>
-            </div>
-
-            <div class="card">
-                <input type="text" placeholder="Project Title">
-                <input type="text" placeholder="Tools & Languages Used">
-                <textarea placeholder="Project Description"></textarea>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- ================= SKILLS ================= -->
-    <section class="section">
-        <h2>Skills</h2>
-        <input type="text" placeholder="Python, Django, SQL, RESTact, REST API">
-    </section>
-
-
-    <!-- ================= EXPERIENCE ================= -->
-    <section class="section">
-        <h2>Experience</h2>
-        <textarea placeholder="Describe your work experience..."></textarea>
-    </section>
-
-
-    <!-- ================= LINKS ================= -->
-    <section class="section">
-        <h2>Professional Links</h2>
-
-        <div class="grid-2">
-            <input type="text" placeholder="LinkedIn URL">
-            <input type="text" placeholder="GitHub URL">
-            <input type="text" placeholder="Naukri Profile">
-            <input type="text" placeholder="Portfolio / Other">
-        </div>
-    </section>
-
-
-    <!-- ================= CERTIFICATES ================= -->
-    <section class="section">
-        <h2>Certificates</h2>
-
-        <label class="upload-file">
-            Upload Certificate
-            <input type="file">
-        </label>
-    </section>
-
-
-    <button class="save-btn">Save Profile</button>
+    <div class="edu-card">
+        <input name="college2" placeholder="College Name">
+        <input name="degree2" placeholder="Degree">
+        <input name="stream2" placeholder="Stream">
+        <input name="percentage2" placeholder="Percentage">
+    </div>
 
 </div>
+</section>
 
+
+<!-- ================= PROJECTS ================= -->
+<section class="card-section">
+<h2>Projects</h2>
+
+<div class="project-grid">
+
+    <div class="project-card">
+        <input name="p1_title" placeholder="Project Title">
+        <input name="p1_tools" placeholder="Tools & Technologies">
+        <textarea name="p1_desc" placeholder="Description"></textarea>
+    </div>
+
+    <div class="project-card">
+        <input name="p2_title" placeholder="Project Title">
+        <input name="p2_tools" placeholder="Tools & Technologies">
+        <textarea name="p2_desc" placeholder="Description"></textarea>
+    </div>
+
+    <div class="project-card">
+        <input name="p3_title" placeholder="Project Title">
+        <input name="p3_tools" placeholder="Tools & Technologies">
+        <textarea name="p3_desc" placeholder="Description"></textarea>
+    </div>
+
+</div>
+</section>
+
+
+<!-- ================= PROFESSIONAL LINKS ================= -->
+<section class="card-section">
+<h2>Professional Links</h2>
+
+<div class="links-grid">
+    <input name="linkedin" placeholder="LinkedIn URL">
+    <input name="github" placeholder="GitHub URL">
+    <input name="naukri" placeholder="Naukri Profile URL">
+    <input name="portfolio" placeholder="Portfolio / Other">
+</div>
+
+</section>
+
+
+<!-- ================= UPLOADS ================= -->
+<section class="card-section">
+<h2>Resume & Certificates</h2>
+
+<div class="links-grid">
+    <div>
+        <label class="file-label">Upload Resume</label>
+        <input type="file" name="resume">
+    </div>
+
+    <div>
+        <label class="file-label">Upload Certificates</label>
+        <input type="file" name="certificates">
+    </div>
+</div>
+
+</section>
+
+
+<!-- ================= SUBMIT BUTTON ================= -->
+<div class="save-area">
+    <button class="save-btn">Save Profile</button>
+</div>
+
+</form>
 
 <script>
 function previewImage(event){
-    const reader = new FileReader();
-    reader.onload = function(){
-        document.getElementById('preview').src = reader.result;
-    }
-    reader.readAsDataURL(event.target.files[0]);
+    const preview=document.getElementById('preview');
+    preview.src=URL.createObjectURL(event.target.files[0]);
 }
 </script>
 
