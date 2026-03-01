@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+<div class="dashboard-container">
+
+    <!-- ================= PROFILE SECTION ================= -->
+    <section class="profile-section">
+
+        <div class="profile-left">
+            <img src="{{ profile.photo.url }}" id="preview" class="profile-img">
+
+            <label class="upload-btn">
+                Upload Photo
+                <input type="file" name="photo" onchange="previewImage(event)">
+            </label>
+        </div>
+
+        <div class="profile-right">
+            <h1 class="profile-name">{{ profile.full_name }}</h1>
+            <p class="profile-role">{{ profile.profession }}</p>
+
+            <textarea name="bio" placeholder="Write a short introduction about yourself...">
+{{ profile.bio }}
+            </textarea>
+        </div>
+
+    </section>
+
+
+    <!-- ================= EDUCATION ================= -->
+    <section class="section">
+        <h2>Education</h2>
+
+        <div class="grid-2">
+            <div class="card">
+                <input type="text" placeholder="College Name">
+                <input type="text" placeholder="Degree">
+                <input type="text" placeholder="Stream">
+                <input type="text" placeholder="Percentage">
+            </div>
+
+            <div class="card">
+                <input type="text" placeholder="College Name">
+                <input type="text" placeholder="Degree">
+                <input type="text" placeholder="Stream">
+                <input type="text" placeholder="Percentage">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= PROJECTS ================= -->
+    <section class="section">
+        <h2>Projects</h2>
+
+        <div class="grid-3">
+
+            <div class="card">
+                <input type="text" placeholder="Project Title">
+                <input type="text" placeholder="Tools & Languages Used">
+                <textarea placeholder="Project Description"></textarea>
+            </div>
+
+            <div class="card">
+                <input type="text" placeholder="Project Title">
+                <input type="text" placeholder="Tools & Languages Used">
+                <textarea placeholder="Project Description"></textarea>
+            </div>
+
+            <div class="card">
+                <input type="text" placeholder="Project Title">
+                <input type="text" placeholder="Tools & Languages Used">
+                <textarea placeholder="Project Description"></textarea>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ================= SKILLS ================= -->
+    <section class="section">
+        <h2>Skills</h2>
+        <input type="text" placeholder="Python, Django, SQL, RESTact, REST API">
+    </section>
+
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section class="section">
+        <h2>Experience</h2>
+        <textarea placeholder="Describe your work experience..."></textarea>
+    </section>
+
+
+    <!-- ================= LINKS ================= -->
+    <section class="section">
+        <h2>Professional Links</h2>
+
+        <div class="grid-2">
+            <input type="text" placeholder="LinkedIn URL">
+            <input type="text" placeholder="GitHub URL">
+            <input type="text" placeholder="Naukri Profile">
+            <input type="text" placeholder="Portfolio / Other">
+        </div>
+    </section>
+
+
+    <!-- ================= CERTIFICATES ================= -->
+    <section class="section">
+        <h2>Certificates</h2>
+
+        <label class="upload-file">
+            Upload Certificate
+            <input type="file">
+        </label>
+    </section>
+
+
+    <button class="save-btn">Save Profile</button>
+
+</div>
+
+
+<script>
+function previewImage(event){
+    const reader = new FileReader();
+    reader.onload = function(){
+        document.getElementById('preview').src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+}
+</script>
+
+{% endblock %}

@@ -1,91 +1,55 @@
+% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CareerTrack</title>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    <link rel="stylesheet" href="{% static 'css/information.css' %}">
-</head>
-<body>
-
-<!-- ================= HEADER ================= -->
-
-<header class="navbar">
-    <div class="nav-container">
-
-        <div class="logo">
-            CareerTrack
-        </div>
-
-        <nav>
-            <ul class="nav-links">
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li class="features-dropdown">
-
-    <a href="#" id="featuresToggle">Features</a>
-
-    <div class="features-panel" id="featuresPanel">
-        <ul>
-            <li><a href="#dashboard-feature">Job Tracker</a></li>
-            <li><a href="#storage-feature">Personal Dashboard</a></li>
-            <li><a href="#about-project">About Us</a></li>
-        </ul>
-    </div>
-
-    </li>
-            <li><a href="{% url 'developer' %}">Developer</a></li>
-
-            </ul>
-        </nav>
-
-    </div>
-</header>
-
-<!-- =============== PAGE CONTENT ============== -->
-
 {% block content %}
-{% endblock %}
 
-<!-- ================= FOOTER ================= -->
+<div class="hero-left">
 
-<footer class="footer">
-    <div class="footer-container">
-
-        <p>© 2026 CareerTrack</p>
-
-        <div class="footer-links">
-            <a href="#">LinkedIn</a>
-            <a href="#">GitHub</a>
-            <a href="#">Contact</a>
-        </div>
-
+    <div class="profile-img-wrapper">
+        <img id="preview"
+             src="{% if profile.photo %}{{ profile.photo.url }}{% else %}{% static 'images/default.png' %}{% endif %}">
+        
+        <label class="upload-overlay">
+            Change Photo
+            <input type="file" name="photo" onchange="previewImage(event)">
+        </label>
     </div>
-</footer>
 
-</body>
+</div>
 
-<script>
-const toggle = document.getElementById("featuresToggle");
-const panel = document.getElementById("featuresPanel");
+<div class="hero-right">
+    <input class="name-field" name="full_name" placeholder="Your Full Name">
+    <textarea class="bio-field" name="bio"
+    placeholder="Write a short professional summary about yourself..."></textarea>
+</div>
+<div class="edu-card">
+    <input name="college1" placeholder="College Name">
+    <input name="degree1" placeholder="Degree">
+    <input name="stream1" placeholder="Stream">
+    <input name="percentage1" placeholder="Percentage">
+</div>
 
-toggle.addEventListener("click", function(e) {
-    e.preventDefault();
-    panel.classList.toggle("show");
-});
+<div class="edu-card">
+    <input name="college2" placeholder="College Name">
+    <input name="degree2" placeholder="Degree">
+    <input name="stream2" placeholder="Stream">
+    <input name="percentage2" placeholder="Percentage">
+</div>
+<div class="project-card">
+    <input name="p1_title" placeholder="Project Title">
+    <input name="p1_tools" placeholder="Tools & Technologies">
+    <textarea name="p1_desc" placeholder="Project Description"></textarea>
+</div>
 
-// close if clicked outside
-document.addEventListener("click", function(e) {
-    if (!toggle.contains(e.target) && !panel.contains(e.target)) {
-        panel.classList.remove("show");
-    }
-});
-</script>
-</html>
+<div class="project-card">
+    <input name="p2_title" placeholder="Project Title">
+    <input name="p2_tools" placeholder="Tools & Technologies">
+    <textarea name="p2_desc" placeholder="Project Description"></textarea>
+</div>
+
+<div class="project-card">
+    <input name="p3_title" placeholder="Project Title">
+    <input name="p3_tools" placeholder="Tools & Technologies">
+    <textarea name="p3_desc" placeholder="Project Description"></textarea>
+</div>
+
+{% endblock %}

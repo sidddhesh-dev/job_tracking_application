@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import JobApplication
+from .models import JobApplication ,Profile
 
 def home(request):
     return render(request, 'core/home.html')
@@ -30,3 +30,25 @@ def add_job(request):
 def delete_job(request, id):
     JobApplication.objects.get(id=id).delete()
     return redirect('tracker')
+
+
+def dashboard(request):
+    profile = Profile.objects.first()   # fetch stored profile
+    return render(request, 'core/dashboard.html', {'profile': profile})
+
+
+def add_profile(request):
+    if request.method == "POST":
+        Profile.objects.create(
+            name=request.POST['name'],
+            email=request.POST['email'],
+            profile_image=request.FILES['profile_image'],
+            resume=request.FILES['resume'],
+            skills=request.POST['skills'],
+            certificates=request.POST['certificates'],
+            github=request.POST['github'],
+            linkedin=request.POST['linkedin'],
+        )
+        return redirect('dashboard')
+
+    return redirect('dashboard')
