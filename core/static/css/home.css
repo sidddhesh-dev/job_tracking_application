@@ -1,6 +1,6 @@
-/* =========================
-   GLOBAL RESET (VERY IMPORTANT)
-========================= */
+html {
+  scroll-behavior: smooth;
+}
 * {
     margin: 0;
     padding: 0;
@@ -12,10 +12,6 @@ body {
     overflow-x: hidden; /* prevents horizontal scroll */
 }
 
-
-/* =========================
-   HERO SECTION
-========================= */
 
 .hero {
     display: flex;
