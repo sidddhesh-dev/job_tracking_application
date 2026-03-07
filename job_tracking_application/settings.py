@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-iav(&=@%+4i^1us#wspae1c03whu4ix73*e0c$v_nh8++h6kj^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "job-tracking-application.onrender.com",
+    "localhost",
+    "127.0.0.1"
+]
 
 
 # Application definition
