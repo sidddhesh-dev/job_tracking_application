@@ -111,7 +111,7 @@ body {
     z-index: 999;
 }
 
-/* when active */
+
 .features-panel.show {
     opacity: 1;
     transform: translateY(0);
