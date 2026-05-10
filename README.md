@@ -11,7 +11,7 @@ The application was built to practice real-world Django development concepts inc
 # 🚀 Live Demo
 
 🔗 Live Project:  
-[Job Tracking Application](https://job-tracking-application-ten.vercel.app)
+[Job Tracking Application](https://job-tracking-application-f6p9.onrender.com/)
 
 ---
 
