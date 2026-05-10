@@ -11,7 +11,7 @@ The application was built to practice real-world Django development concepts inc
 # 🚀 Live Demo
 
 🔗 Live Project:  
-[Job Tracking Application](https://job-tracking-application-f6p9.onrender.com/)
+https://job-tracking-application-f6p9.onrender.com/
 
 ---
 
@@ -49,7 +49,6 @@ The application was built to practice real-world Django development concepts inc
 
 ## Deployment
 - Render
-- Vercel
 
 ---
 
@@ -95,10 +94,10 @@ Users can:
 ## Application Tracking
 Track:
 - Company Name
-- Role
-- Status
+- Job Role
+- Application Status
 - Application Date
-- Notes
+- Notes & Details
 
 ---
 
